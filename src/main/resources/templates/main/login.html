@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" type="image/png"
+          href="https://static.iskwen.com/yuntechlifeadmin  /css/fullpage-4de.css"/>
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+    <title>itech-admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='https://static.iskwen.com/yuntechlifeadmin/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://static.iskwen.com/yuntechlifeadmin/css/all.min.css'>
+    <link rel='stylesheet'
+          href='https://static.iskwen.com/yuntechlifeadmin/css/style.min.css'>
+    <style>
+        body {
+            display: -webkit-box;
+            display: flex;
+            height: 100vh;
+            min-height: 35rem;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        .card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .card-wrap {
+            position: relative;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 769px) {
+
+            .card-wrap {
+                max-width: 450px
+            }
+        }
+
+        .card-body {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            flex-direction: column;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .card-body p {
+            font-size: 1.1rem;
+        }
+
+        .card-title {
+            font-weight: bold;
+            font-size: 1.8rem;
+        }
+
+        .badge-wrap {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-pack: center;
+            justify-content: center;
+        }
+
+        .badge-wrap a.badge {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            margin: 0 .2rem;
+            padding: 0;
+            opacity: .7;
+            border-radius: 50%;
+            -webkit-transition: opacity .3s ease-in;
+            transition: opacity .3s ease-in;
+            font-size: 1rem;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .badge-wrap a.badge:hover {
+            opacity: 1;
+            color: #fff;
+        }
+
+        .btn {
+            color: #fff !important;
+            width: 10em;
+            -webkit-transition: all .4s;
+            transition: all .4s;
+            border-radius: 20px;
+            border: 2px solid transparent;
+        }
+
+        .btn.btn-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 0;
+            width: 3rem;
+            height: 3rem;
+            font-size: 1.5rem;
+            border: 0;
+        }
+
+        .btn.btn-back:hover {
+            border: 0 !important;
+        }
+
+        .form-control {
+            font-family: 'Handle', cursive;
+        }
+
+        .form-control::-webkit-input-placeholder {
+            font-family: 'Josefin Sans', sans-serif;
+            letter-spacing: .1em;
+            font-size: .9rem;
+        }
+
+        .form-control::-moz-placeholder {
+            font-family: 'Josefin Sans', sans-serif;
+            letter-spacing: .1em;
+            font-size: .9rem;
+        }
+
+        .form-control:-ms-input-placeholder {
+            font-family: 'Josefin Sans', sans-serif;
+            letter-spacing: .1em;
+            font-size: .9rem;
+        }
+
+        .form-control::-ms-input-placeholder {
+            font-family: 'Josefin Sans', sans-serif;
+            letter-spacing: .1em;
+            font-size: .9rem;
+        }
+
+        .form-control::placeholder {
+            font-family: 'Josefin Sans', sans-serif;
+            letter-spacing: .1em;
+            font-size: .9rem;
+        }
+
+        .card--welcome {
+            z-index: 3;
+        }
+
+        .card--welcome .card-title {
+            color: #ee9ca7;
+        }
+
+        .card--welcome .btn-wrap {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            flex-direction: column;
+        }
+
+        .card--welcome .btn {
+            color: #fff;
+            -webkit-transition: all .3s;
+            transition: all .3s;
+        }
+
+        .card--welcome .btn:hover {
+            background-color: rgba(238, 156, 167, .25);
+            font-weight: bold;
+        }
+
+        .card--welcome .btn-register {
+            margin-bottom: .8em;
+            background-color: #ee9ca7;
+        }
+
+        .card--welcome .btn-register:hover {
+            color: #ee9ca7;
+        }
+
+        .card--welcome .btn-login {
+            background-color: #a7bfe8;
+        }
+
+        .card--register .card-title {
+            color: #ee9ca7;
+        }
+
+        .card--register .badge {
+            background-color: #ee9ca7;
+        }
+
+        .card--register .btn {
+            background-color: #ee9ca7;
+        }
+
+        .card--register .btn:hover {
+            background-color: #fff;
+            color: #ee9ca7 !important;
+            font-weight: bold;
+            border: 2px solid rgba(238, 156, 167, .25);
+        }
+
+        .card--register .btn:focus {
+            box-shadow: 0 0 0 0.2rem rgba(238, 156, 167, .25);
+        }
+
+        .card--register .form-control {
+            color: #ee9ca7;
+            border-color: rgba(238, 156, 167, .25);
+        }
+
+        .card--register .form-control:focus {
+            box-shadow: 0 0 0 0.2rem rgba(238, 156, 167, .25);
+        }
+
+        .card--login .card-title {
+            color: #a7bfe8;
+        }
+
+        .card--login .badge {
+            background-color: #a7bfe8;
+        }
+
+        .card--login .btn {
+            background-color: #a7bfe8;
+        }
+
+        .card--login .btn:hover {
+            background-color: #fff;
+            color: #a7bfe8 !important;
+            font-weight: bold;
+            border: 2px solid rgba(167, 191, 232, .25);
+        }
+
+        .card--login .btn:focus {
+            box-shadow: 0 0 0 0.2rem rgba(167, 191, 232, .25);
+        }
+
+        .card--login .form-control {
+            color: #a7bfe8;
+            border-color: rgba(167, 191, 232, .25);
+        }
+
+        .card--login .form-control:focus {
+            box-shadow: 0 0 0 0.2rem rgba(167, 191, 232, .25);
+        }
+
+        body {
+            background: -webkit-gradient(linear, left top, right top, from(#ffdde1), color-stop(#ee9ca7), color-stop(#a7bfe8), to(#6190e8));
+            background: linear-gradient(to right, #ffdde1, #ee9ca7, #a7bfe8, #6190e8);
+            background-size: 500% 500%;
+            -webkit-transition: background 3s ease;
+            transition: background 3s ease;
+            background-position: 50% 50%;
+        }
+
+        body.is-register {
+            background-position: 0% 50%;
+        }
+
+        body.is-login {
+            background-position: 100% 50%;
+        }
+
+        .card {
+            -webkit-transition: all .3s .1s ease-out;
+            transition: all .3s .1s ease-out;
+        }
+
+        .card:not(.is-show) {
+            opacity: 0;
+            -webkit-transform: translate(-50%, -50%) rotateX(95deg);
+            transform: translate(-50%, -50%) rotateX(95deg);
+        }
+
+        .card.is-show {
+            opacity: 1;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            z-index: 5;
+        }
+    </style>
+    <script>
+        window.console = window.console || function (t) {
+        };
+    </script>
+    <script>
+        if (document.location.search.match(/type=embed/gi)) {
+            window.parent.postMessage("resize", "*");
+        }
+    </script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?16b2483b374d97762ece7e8d2dcc460e";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153564967-6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-153564967-6');
+    </script>
+</head>
+<body translate="no">
+<div class="container">
+    <div class="card-wrap">
+        <div class="card border-0 shadow card--welcome is-show" id="welcome">
+            <div class="card-body">
+                <h2 class="card-title">WELCOME</h2>
+                <p>Welcome to the itech admin</p>
+                <div class="btn-wrap"><a class="btn btn-lg btn-register js-btn" data-target="register">REGISTER</a><a
+                        class="btn btn-lg btn-login js-btn" data-target="login">LOGIN</a></div>
+            </div>
+        </div>
+        <div class="card border-0 shadow card--register" id="register">
+            <div class="card-body">
+                <h2 class="card-title">Create Account</h2>
+                <p class="card-text">Enter your personal details<br/>and start journey with us</p>
+                <p class="badge-wrap"><a class="badge" href="javascript:tips();"><i class="fab fa-facebook-f"></i></a><a class="badge" href="javascript:tips();"><i
+                        class="fab fa-google"></i></a><a class="badge" href="javascript:tips();"><i class="fab fa-twitter"></i></a><a
+                        class="badge" href="javascript:tips();"><i class="fab fa-github"></i></a></p>
+                <p>or use your email for registration</p>
+                <div class="form-group">
+                    <input class="form-control" type="text" placeholder="Username" id="registerUsername" autocomplete="off" onkeydown="registerKey();"/>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="email" placeholder="Email" id="registerEmail" autocomplete="off" onkeydown="registerKey();"/>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" placeholder="Password" id="registerPassword" onkeydown="registerKey();"/>
+                </div>
+                <button class="btn btn-lg" onclick="register();">REGISTER</button>
+            </div>
+            <button class="btn btn-back js-btn" data-target="welcome"><i class="fas fa-angle-left"></i></button>
+        </div>
+        <div class="card border-0 shadow card--login" id="login">
+            <div class="card-body">
+                <h2 class="card-title">Welcome Back!</h2>
+                <p>To keep connected with us<br/>please login with your personal info</p>
+                <p class="badge-wrap"><a class="badge" href="javascript:tips();"><i class="fab fa-facebook-f"></i></a><a class="badge"  href="javascript:tips();"><i
+                        class="fab fa-google"></i></a><a class="badge"  href="javascript:tips();"><i class="fab fa-twitter"></i></a><a
+                        class="badge"  href="javascript:tips();"><i class="fab fa-github"></i></a></p>
+                <p>or use your account</p>
+                <div class="form-group">
+                    <input class="form-control" type="text" placeholder="Username" id="username" autocomplete="off" onkeydown="loginKey();"/>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" placeholder="Password" id="password" onkeydown="loginKey();"/>
+                </div>
+                <button class="btn btn-lg" id="TencentCaptcha" data-appid="2053907131" data-cbfn="callback">LOGIN</button>
+            </div>
+            <button class="btn btn-back js-btn" data-target="welcome"><i class="fas fa-angle-left"></i></button>
+        </div>
+    </div>
+</div>
+<script src='https://static.iskwen.com/jquery-v3.4.1/jquery-3.4.1.min.js'></script>
+<script src="https://static.iskwen.com/yuntechlifeadmin/js/stopExecutionOnTimeout.js"></script>
+<script src="https://static.iskwen.com/sweetalert-v2.1.2/sweetalert.min.js"></script>
+<script src='https://static.iskwen.com/yuntechlifeadmin/js/md5.js'></script>
+<script src='https://static.iskwen.com/yuntechlifeadmin/js/TCaptcha.js'></script>
+<script src='https://static.iskwen.com/yuntechlifeadmin/js/util.js'></script>
+<script src='https://static.iskwen.com/yuntechlifeadmin/js/templates/main/login.js?v=1583345922'></script>
+<script id="rendered-js">
+    const cards = document.querySelectorAll('.card');
+
+    /* View Controller
+                                                      -----------------------------------------*/
+    const btns = document.querySelectorAll('.js-btn');
+    btns.forEach(btn => {
+        btn.addEventListener('click', on_btn_click, true);
+        btn.addEventListener('touch', on_btn_click, true);
+    });
+
+    function on_btn_click(e) {
+        const nextID = e.currentTarget.getAttribute('data-target');
+        const next = document.getElementById(nextID);
+        if (!next) return;
+        bg_change(nextID);
+        view_change(next);
+        return false;
+    }
+
+    /* Add class to the body */
+    function bg_change(next) {
+        document.body.className = '';
+        document.body.classList.add('is-' + next);
+    }
+
+    /* Add class to a card */
+    function view_change(next) {
+        cards.forEach(card => {
+            card.classList.remove('is-show');
+        });
+        next.classList.add('is-show');
+    }
+
+    //# sourceURL=pen.js
+</script>
+<script>
+    function tips() {
+        swal("Error", "Temporary does not support", "error");
+    }
+    function registerKey() {
+        if (event.keyCode == 13){
+            register();
+        }
+    }
+    function register() {
+        var registerUsername = $("#registerUsername").val();
+        var registerEmail = $("#registerEmail").val();
+        var registerPassword = $("#registerPassword").val();
+        if (registerUsername === '' || registerUsername === null) {
+            swal("Error", "Username can't be empty", "error");
+            return false;
+        }
+        if (registerEmail === '' || registerEmail === null) {
+            swal("Error", "Email can't be empty", "error");
+            return false;
+        }
+        if (registerPassword === '' || registerPassword === null) {
+            swal("Error", "Password can't be empty", "error");
+            return false;
+        }
+        if (!checkEmail(registerEmail)) {
+            swal("Error", "Email input error", "error");
+            return false;
+        }
+        swal("Error", "Registration is not allowed!", "error");
+    }
+
+    function checkEmail(str) {
+        var re = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/
+        if (re.test(str)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
+<script>
+//     window.onload=function(){
+//     $.globalMessenger().post({
+//         message: "发生错误,请稍后重试!",
+//         hideAfter: 3,
+//         type: 'error',
+//         showCloseButton: true
+//     });
+// }
+</script>
+</body>
+</html>

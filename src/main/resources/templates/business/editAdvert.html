@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="https://static.iskwen.com/layui-v2.5.5/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="https://static.iskwen.com/yuntechlifeadmin/config/style/admin.css" media="all">
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?16b2483b374d97762ece7e8d2dcc460e";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153564967-6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-153564967-6');
+    </script>
+</head>
+<body>
+
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">編輯廣告</div>
+                <a lay-href="" lay-text="" id="layHrefUtil" style="display:none;"></a>
+                <div class="layui-card-body" pad15>
+
+                    <div class="layui-form" lay-filter="">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">標題</label>
+                            <div class="layui-input-inline">
+                                <input type="text" id="title" name="title" autocomplete="off"
+                                       class="layui-input"
+                                >
+                            </div>
+                            <label class="layui-form-label">優先級</label>
+                            <div class="layui-input-inline">
+                                <input type="number" id="priority" name="priority" autocomplete="off"
+                                       class="layui-input"
+                                >
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">展示時間</label>
+                            <div class="layui-input-block">
+                                <input type="text" id="selectTime" name="selectTime" value="" class="layui-input"  style="width:500px;text-align:center;">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">內部標題</label>
+                            <div class="layui-input-inline">
+                                <input type="text" id="layText" name="layText" autocomplete="off"
+                                       class="layui-input"
+                                >
+                            </div>
+                            <label class="layui-form-label">跳轉</label>
+                            <div class="layui-input-inline">
+                                <select name="jumpType" id="jumpType">
+                                    <option value="" disabled selected>請選擇</option>
+                                    <option value="1">內部</option>
+                                    <option value="2">外部</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">url</label>
+                            <div class="layui-input-inline">
+                                <input type="text" id="url" name="url" autocomplete="off"
+                                       class="layui-input"
+                                >
+                            </div>
+                            <label class="layui-form-label">主題</label>
+                            <div class="layui-input-inline">
+                                <select name="color" id="color">
+                                    <option value="" disabled selected>請選擇</option>
+                                    <option value="1">紅</option>
+                                    <option value="2">橙</option>
+                                    <option value="3">綠</option>
+                                    <option value="4">青</option>
+                                    <option value="5">藍</option>
+                                    <option value="6">黑</option>
+                                    <option value="7">灰</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <button class="layui-btn" onclick="post()">
+                                    確認提交
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://static.iskwen.com/jquery-v3.4.1/jquery-3.4.1.min.js"></script>
+<script src="https://static.iskwen.com/layui-v2.5.5/layui/layui.all.js"></script>
+<script src="https://static.iskwen.com/yuntechlifeadmin/js/util.js" charset="utf-8"></script>
+<script src="https://static.iskwen.com/ly2ui-v1.0.0/ly2ui.all.js?v=1586250368" charset="utf-8"></script>
+<script src="https://static.iskwen.com/yuntechlifeadmin/js/templates/business/editAdvert.js?v=1600962748"></script>
+<script>
+    var laydate = layui.laydate;
+    laydate.render({
+        elem: '#selectTime',
+        lang: getLaydateLang(),
+        range: true,
+        type: 'datetime',
+        format: 'yyyy-MM-dd HH:mm:ss'
+    });
+</script>
+</body>
+</html>

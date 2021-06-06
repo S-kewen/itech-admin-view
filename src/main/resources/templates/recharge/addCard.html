@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>生成卡密</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="https://static.iskwen.com/layui-v2.5.5/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="https://static.iskwen.com/yuntechlifeadmin/config/style/admin.css" media="all">
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?16b2483b374d97762ece7e8d2dcc460e";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153564967-6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-153564967-6');
+    </script>
+</head>
+<body>
+
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">生成卡密</div>
+                <a lay-href="" lay-text="" id="layHrefUtil" style="display:none;"></a>
+                <div class="layui-card-body" pad15>
+                    <div class="layui-form" lay-filter="">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">金額</label>
+                            <div class="layui-input-inline">
+                                <input type="text" id="amount" name="amount" value="" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">須大於0,精確2位小數</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">數量</label>
+                            <div class="layui-input-inline">
+                                <input type="number" id="num" name="num" value="" autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">須大於0</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">有效期</label>
+                            <div class="layui-input-inline">
+                                <input type="text" id="vaildTime" name="vaildTime" value="" autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">必填</div>
+                        </div>
+                        <div class="layui-form-item layui-form-text">
+                            <label class="layui-form-label">備註</label>
+                            <div class="layui-input-block">
+                                <textarea id="remark" name="remark" placeholder="長度不能大於255(選填)"
+                                          class="layui-textarea"></textarea>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <button class="layui-btn" onclick="post()">
+                                    確認生成
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://static.iskwen.com/jquery-v3.4.1/jquery-3.4.1.min.js"></script>
+<script src="https://static.iskwen.com/layui-v2.5.5/layui/layui.all.js"></script>
+<script src='https://static.iskwen.com/yuntechlifeadmin/js/md5.js'></script>
+<script src="https://static.iskwen.com/yuntechlifeadmin/js/util.js" charset="utf-8"></script>
+<script src="https://static.iskwen.com/ly2ui-v1.0.0/ly2ui.all.js?v=1586250368" charset="utf-8"></script>
+<script src="https://static.iskwen.com/yuntechlifeadmin/js/templates/recharge/addCard.js?v=1600962748"></script>
+<script>
+    var laydate = layui.laydate;
+    laydate.render({
+        elem: '#vaildTime',
+        lang: getLaydateLang(),
+        min: 0,
+        type: 'datetime',
+        format: 'yyyy-MM-dd HH:mm:ss'
+    });
+</script>
+</body>
+</html>

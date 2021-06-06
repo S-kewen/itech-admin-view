@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>控制台</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="stylesheet" href="https://static.iskwen.com/font-awesome-4.7.0/css/font-awesome.min.css" media="all">
+  <link rel="stylesheet" href="https://static.iskwen.com/layui-v2.5.5/layui/css/layui.css" media="all">
+  <link rel="stylesheet" href="https://static.iskwen.com/yuntechlifeadmin/config/style/admin.css" media="all">
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?16b2483b374d97762ece7e8d2dcc460e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153564967-6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-153564967-6');
+  </script>
+</head>
+<body>
+
+  <div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+      <div class="layui-col-sm6 layui-col-md3">
+        <div class="layui-card">
+          <div class="layui-card-header">
+            瀏覽量
+            <span class="layui-badge layui-bg-blue layuiadmin-badge">今日</span>
+          </div>
+          <div class="layui-card-body layuiadmin-card-list">
+            <p class="layuiadmin-big-font"><span id="todayPvCount" class="num-jump-thousands">0</span></p>
+            <p>
+              總瀏覽量
+              <span class="layuiadmin-span-color"><span id="allPvCount" class="num-jump-thousands">0</span><i class="layui-inline layui-icon layui-icon-flag"></i></span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="layui-col-sm6 layui-col-md3">
+        <div class="layui-card">
+          <div class="layui-card-header">
+            用戶數
+            <span class="layui-badge layui-bg-green layuiadmin-badge">匯總</span>
+          </div>
+          <div class="layui-card-body layuiadmin-card-list">
+
+            <p class="layuiadmin-big-font"><span id="userCount" class="num-jump-thousands">0</span></p>
+            <p>
+              活躍率
+              <span class="layuiadmin-span-color"><span id="userActiveRatio" class="num-jump-thousands">0.00</span>%<i class="layui-inline layui-icon layui-icon-user"></i></span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="layui-col-sm6 layui-col-md3">
+        <div class="layui-card">
+          <div class="layui-card-header">
+            收入
+            <span class="layui-badge layui-bg-cyan layuiadmin-badge">今日</span>
+          </div>
+          <div class="layui-card-body layuiadmin-card-list">
+
+            <p class="layuiadmin-big-font">$<span id="todayIncome" class="num-jump-thousands">0.00</span></p>
+            <p>
+              總收入
+              <span class="layuiadmin-span-color"><span id="allIncome" class="num-jump-thousands">0.00</span><i class="layui-inline layui-icon layui-icon-dollar"></i></span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="layui-col-sm6 layui-col-md3">
+        <div class="layui-card">
+          <div class="layui-card-header">
+            待完成
+            <span class="layui-badge layui-bg-orange layuiadmin-badge">匯總</span>
+          </div>
+          <div class="layui-card-body layuiadmin-card-list">
+            <p class="layuiadmin-big-font"><span id="uncompleteOrderCount" class="num-jump-thousands">0</span></p>
+            <p>
+              總訂單數
+              <span class="layuiadmin-span-color"><span id="orderCount" class="num-jump-thousands">0</span><i class="layui-inline layui-icon layui-icon-face-smile-b"></i></span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="layui-col-sm12">
+        <div class="layui-card">
+          <div class="layui-card-header">
+            性能分析
+            <i class="layui-icon layui-icon-tips" lay-tips="預防為主，持續改進" lay-offset="5"></i>
+          </div>
+          <div class="layui-card-body">
+            <div class="layui-row">
+              <div class="layui-col-sm8">
+                  <div class="layui-carousel layadmin-carousel layadmin-dataview" data-anim="fade" lay-filter="LAY-index-pagetwo">
+                    <div carousel-item id="LAY-index-pagetwo">
+                      <div><i class="layui-icon layui-icon-loading1 layadmin-loading"></i></div>
+                    </div>
+                  </div>
+              </div>
+              <div class="layui-col-sm4">
+                <div class="layuiadmin-card-list">
+                  <p class="layuiadmin-normal-font">瀏覽量</p>
+                  <span>預期目標</span>
+                  <div class="layui-progress layui-progress-big" lay-showPercent="yes">
+                    <div class="layui-progress-bar" lay-percent="" id="pvCount"></div>
+                  </div>
+                </div>
+                <div class="layuiadmin-card-list">
+                  <p class="layuiadmin-normal-font">CPU</p>
+                  <span>使用率</span>
+                  <div class="layui-progress layui-progress-big" lay-showPercent="yes">
+                    <div class="layui-progress-bar" lay-percent="" id="cpu"></div>
+                  </div>
+                </div>
+                <div class="layuiadmin-card-list">
+                  <p class="layuiadmin-normal-font">RAM</p>
+                  <span>使用率</span>
+                  <div class="layui-progress layui-progress-big" lay-showPercent="yes">
+                    <div class="layui-progress-bar" lay-percent="" id="ram"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="layui-col-sm8">
+        <div class="layui-card">
+          <div class="layui-card-header">意見反饋
+            <i class="layui-icon layui-icon-tips" lay-tips="誠信、高效、創新、超越" lay-offset="5"></i>
+          </div>
+          <div class="layui-card-body">
+            <ul class="layuiadmin-card-status layuiadmin-home2-usernote" id="listFeedback">
+<!--              <li>-->
+<!--                <h3>贤心</h3>-->
+<!--                <h5 style="color: #bd2130">客服投訴</h5>-->
+<!--                <p>作为 layui 官方推出的后台模板，从初版的饱受争议，到后续的埋头丰富，逐步占据了国内后台系统应用的主要市场。</p>-->
+<!--                <span>5月30日 00:00</span>-->
+<!--                &nbsp;&nbsp;<a class="layui-btn layui-btn-xs layui-btn-radius layui-btn-warm ly2-tips" ly2-tips-text="未解決" ly2-tips-color="#009688">待處理</a>-->
+<!--                <a href="javascript:;" class="layui-btn layui-btn-xs layui-btn-danger layuiadmin-reply">刪除</a>-->
+<!--              </li>-->
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="layui-col-sm4">
+        <div class="layui-card">
+          <div class="layui-card-header">用戶報告
+            <i class="layui-icon layui-icon-tips" lay-tips="一份耕耘、一份收获~" lay-offset="5"></i>
+          </div>
+          <div class="layui-card-body layadmin-takerates">
+            <div class="layui-progress" lay-showPercent="yes">
+              <h3 id="userAddRatioTip"></h3>
+              <div class="layui-progress-bar" id="userAddRatio" lay-percent=""></div>
+              <!--              layui-progress-bar layui-bg-orange-->
+            </div>
+            <div class="layui-progress" lay-showPercent="yes">
+              <h3 id="userCertificationRatioTip"></h3>
+              <div class="layui-progress-bar" id="userCertificationRatio" lay-percent=""></div>
+            </div>
+          </div>
+        </div>
+        <div class="layui-card">
+          <div class="layui-card-header">事務處理
+            <i class="layui-icon layui-icon-tips" lay-tips="今天工作不努力，明天努力找工作" lay-offset="5"></i>
+          </div>
+          <div class="layui-card-body">
+            <ul class="layui-row layuiadmin-card-team">
+              <li class="layui-col-xs6">
+                <a lay-href="user/listUser" lay-text="用戶列表">
+                  <span><img src="https://static.iskwen.com/yuntechlifeadmin/images/tp/listUser.png"></span>
+                  <span>用戶列表</span>
+                </a>
+              </li>
+              <li class="layui-col-xs6">
+                <a lay-href="user/listCertification" lay-text="身份認證">
+                  <span><img src="https://static.iskwen.com/yuntechlifeadmin/images/tp/listCertification.png"></span>
+                  <span>身份認證</span>
+                </a>
+              </li>
+              <li class="layui-col-xs6">
+                <a lay-href="business/listAdvert" lay-text="廣告管理">
+                  <span><img src="https://static.iskwen.com/yuntechlifeadmin/images/tp/listAdvert.png"></span>
+                  <span>廣告管理</span>
+                </a>
+              </li>
+              <li class="layui-col-xs6">
+                <a lay-href="system/listNotice" lay-text="系統公告">
+                  <span><img src="https://static.iskwen.com/yuntechlifeadmin/images/tp/listNotice.png"></span>
+                  <span>系統公告</span>
+                </a>
+              </li>
+              <li class="layui-col-xs6">
+                <a lay-href="system/listMessageBoard" lay-text="留言管理">
+                  <span><img src="https://static.iskwen.com/yuntechlifeadmin/images/tp/listMessageBoard.png"></span>
+                  <span>留言管理</span>
+                </a>
+              </li>
+              <li class="layui-col-xs6">
+                <a lay-href="system/listFeedback" lay-text="意見反饋">
+                  <span><img src="https://static.iskwen.com/yuntechlifeadmin/images/tp/listFeedback.png"></span>
+                  <span>意見反饋</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        
+      </div>
+    </div>
+  </div>
+  <script src='https://static.iskwen.com/jquery-v3.4.1/jquery-3.4.1.min.js'></script>
+  <script src="https://static.iskwen.com/jquery-v3.4.1/jquery.numscroll.js"></script>
+  <script src="https://static.iskwen.com/yuntechlifeadmin/js/timeUtils.js?v=1584610068"></script>
+  <script src="https://static.iskwen.com/layui-v2.5.5/layui/layui.all.js" charset="utf-8"></script>
+  <script src='https://static.iskwen.com/yuntechlifeadmin/js/util.js'></script>
+  <script src="https://static.iskwen.com/ly2ui-v1.0.0/ly2ui.all.js?v=1586250368" charset="utf-8"></script>
+  <script src="https://static.iskwen.com/yuntechlifeadmin/js/templates/home/console.js?v=1583345922"></script>
+  <script>
+    layui.config({
+      base: 'https://static.iskwen.com/yuntechlifeadmin/config/' //静态资源所在路径
+    }).extend({
+      index: 'lib/index' //主入口模块
+    }).use(['index', 'sample']);
+  </script>
+</body>
+</html>
