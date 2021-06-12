@@ -3,7 +3,6 @@
 itech - 榮獲 【專題人氣獎第二名】 【研討會嘉獎】
 
 demo: https://itech-admin.iskwen.com:88
-(測試賬號：admin，密碼：admin123456)
 
 後端：https://github.com/S-kwen/itech-admin-api
 
